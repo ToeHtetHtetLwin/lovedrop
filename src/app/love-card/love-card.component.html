@@ -1,0 +1,58 @@
+<div class="love-container">
+  
+  <div #canvasContainer class="canvas-container"></div>
+
+  <!-- Top to Bottom Infinite Rain Background -->
+  @if (accepted()) {
+    <div class="matrix-grid">
+      @for (col of matrixCols; track $index) {
+        <div class="matrix-column" [style.animation-duration]="(2.0 + ($index % 5) * 0.4) + 's'">
+          <div class="text-track">
+            <span>LOVE YOU</span><span>LOVE YOU</span><span>LOVE YOU</span><span>LOVE YOU</span>
+            <span>LOVE YOU</span><span>LOVE YOU</span><span>LOVE YOU</span><span>LOVE YOU</span>
+            <span>LOVE YOU</span><span>LOVE YOU</span><span>LOVE YOU</span><span>LOVE YOU</span>
+            <span>LOVE YOU</span><span>LOVE YOU</span><span>LOVE YOU</span><span>LOVE YOU</span>
+            <span>LOVE YOU</span><span>LOVE YOU</span><span>LOVE YOU</span><span>LOVE YOU</span>
+            <span>LOVE YOU</span><span>LOVE YOU</span><span>LOVE YOU</span><span>LOVE YOU</span>
+            <span>LOVE YOU</span><span>LOVE YOU</span><span>LOVE YOU</span><span>LOVE YOU</span>
+            <span>LOVE YOU</span><span>LOVE YOU</span><span>LOVE YOU</span><span>LOVE YOU</span>
+          </div>
+          <!-- Duplicated Block for Seamless Infinite Loop -->
+          <div class="text-track">
+            <span>LOVE YOU</span><span>LOVE YOU</span><span>LOVE YOU</span><span>LOVE YOU</span>
+            <span>LOVE YOU</span><span>LOVE YOU</span><span>LOVE YOU</span><span>LOVE YOU</span>
+            <span>LOVE YOU</span><span>LOVE YOU</span><span>LOVE YOU</span><span>LOVE YOU</span>
+            <span>LOVE YOU</span><span>LOVE YOU</span><span>LOVE YOU</span><span>LOVE YOU</span>
+            <span>LOVE YOU</span><span>LOVE YOU</span><span>LOVE YOU</span><span>LOVE YOU</span>
+            <span>LOVE YOU</span><span>LOVE YOU</span><span>LOVE YOU</span><span>LOVE YOU</span>
+            <span>LOVE YOU</span><span>LOVE YOU</span><span>LOVE YOU</span><span>LOVE YOU</span>
+            <span>LOVE YOU</span><span>LOVE YOU</span><span>LOVE YOU</span><span>LOVE YOU</span>
+          </div>
+        </div>
+      }
+    </div>
+  }
+
+  @if (!accepted()) {
+    <div class="card-box">
+      <div class="window-header">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+      <h2 class="title">Do you love me?</h2>
+      <div class="btn-group">
+        <button (click)="onAnswer()" class="btn btn-yes">Yes</button>
+        <button (click)="onAnswer()" class="btn btn-no">No</button>
+      </div>
+    </div>
+  }
+
+  <!-- Center Text Over Heart -->
+  @if (accepted()) {
+    <div class="glow-wrapper">
+      <h1 #glowText class="glow-text">LOVE YOU</h1>
+    </div>
+  }
+
+</div>
